@@ -2,9 +2,6 @@
 # Sensitive Account Variables
 ##############################################################################
 
-variable ibmcloud_api_key {
-    description = "IBM Cloud IAM API Key"
-}
 
 variable resource_group {
     description = "Name of resource group to provision resources"
@@ -23,21 +20,10 @@ variable ibm_region {
 # Network Variables
 ##############################################################################
 
-variable public_vlan_ids {
-  description = "List of public vlans. The first will be for the master, any additional will be for worker pools"
-  type        = "list"
-
-}
-
-variable private_vlan_ids {
-  description = "List of private vlans The first will be for the master, any additional will be for worker pools"
-  type        = "list"
-}
-
 
 variable zones {
   description = "List of cluster zones The first will be for the master, any additional will be for worker pools"
-  type        = "list"
+  default     = "dal13"
 
 }
 
@@ -55,7 +41,7 @@ variable cluster_name {
 
 variable kube_version {
   description = "Kube version to use for the cluster. use `ibmcloud ks versions` to see a list of available versions"
-  default     = "1.15.10"
+  default     = "1.20.11"
 }
 
 variable default_pool_size {
