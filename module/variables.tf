@@ -2,8 +2,14 @@
 # Sensitive Account Variables
 ##############################################################################
 
-variable resource_group_id {
+
+variable resource_group {
     description = "Name of resource group to provision resources"
+}
+
+variable ibm_region {
+    description = "IBM Cloud region where all resources will be deployed"
+    default     = "us-south"
 }
 
 ##############################################################################
@@ -17,7 +23,7 @@ variable resource_group_id {
 
 variable zones {
   description = "List of cluster zones The first will be for the master, any additional will be for worker pools"
-  type        = "string"
+  default     = "dal13"
 
 }
 
@@ -57,5 +63,3 @@ variable private_only {
   description = "Provision cluster workers on private only"
   default     = false
 }
-
-##############################################################################
